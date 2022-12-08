@@ -3,8 +3,8 @@ package com.sisalmoxarife.backend.mapper;
 import org.springframework.stereotype.Component;
 
 import com.sisalmoxarife.backend.domain.Usuario;
-import com.sisalmoxarife.backend.dto.UsuarioEntradaDTO;
-import com.sisalmoxarife.backend.dto.UsuarioSaidaDTO;
+import com.sisalmoxarife.backend.usuario.dto.UsuarioEntradaDTO;
+import com.sisalmoxarife.backend.usuario.dto.UsuarioSaidaDTO;
 
 @Component
 public class UsuarioMapper {

@@ -1,4 +1,4 @@
-package com.sisalmoxarife.backend.dto;
+package com.sisalmoxarife.backend.usuario.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
