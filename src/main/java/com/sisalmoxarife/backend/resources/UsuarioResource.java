@@ -1,6 +1,7 @@
 package com.sisalmoxarife.backend.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,12 +23,12 @@ public class UsuarioResource {
 	
 	@PostMapping
 	public ResponseEntity<UsuarioSaidaDTO> salvarUsuario(@RequestBody final UsuarioEntradaDTO usuarioEntrada){
-		return ResponseEntity.ok(usuarioService.salvaUsuario(usuarioEntrada));
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.salvaUsuario(usuarioEntrada));
 	}
 	
 	@DeleteMapping("/{usuarioId}")
 	public ResponseEntity<Void> excluirUsuario(@PathVariable final Integer usuarioId){
 		usuarioService.excluirUsuario(usuarioId);
-		return ResponseEntity.ok().build();
+		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 }
