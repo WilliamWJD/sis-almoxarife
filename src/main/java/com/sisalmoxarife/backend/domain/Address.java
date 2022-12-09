@@ -15,14 +15,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Endereco implements Serializable{
+public class Address implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String logradouro;
-	private String cep;
-	private String estado;
-	private String cidade;
-	private String bairro;
+	private String street;
+	private String zipCode;
+	private String state;
+	private String city;
+	private String district;
 }

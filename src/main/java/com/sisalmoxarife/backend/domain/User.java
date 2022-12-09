@@ -19,14 +19,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-@Entity
-public class Usuario implements Serializable{
+@Entity(name = "users")
+public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nome;
+	private String name;
 	private String email;
-	private String senha;
+	private String password;
 }

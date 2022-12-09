@@ -11,8 +11,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class UsuarioEntradaDTO {
-	private String nome;
+public class InputUserDto {
+	private String name;
 	private String email;
-	private String senha;
+	private String password;
 }
