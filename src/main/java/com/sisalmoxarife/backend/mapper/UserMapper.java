@@ -1,8 +1,8 @@
 package com.sisalmoxarife.backend.mapper;
 
 import com.sisalmoxarife.backend.domain.User;
-import com.sisalmoxarife.backend.usuario.dto.InputUserDto;
-import com.sisalmoxarife.backend.usuario.dto.ResponseUserDto;
+import com.sisalmoxarife.backend.dto.user.InputUserDto;
+import com.sisalmoxarife.backend.dto.user.ResponseUserDto;
 import org.springframework.stereotype.Component;
 
 @Component

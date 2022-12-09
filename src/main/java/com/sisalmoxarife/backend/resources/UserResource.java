@@ -1,8 +1,8 @@
 package com.sisalmoxarife.backend.resources;
 
 import com.sisalmoxarife.backend.services.UserService;
-import com.sisalmoxarife.backend.usuario.dto.InputUserDto;
-import com.sisalmoxarife.backend.usuario.dto.ResponseUserDto;
+import com.sisalmoxarife.backend.dto.user.InputUserDto;
+import com.sisalmoxarife.backend.dto.user.ResponseUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

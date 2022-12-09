@@ -1,4 +1,4 @@
-package com.sisalmoxarife.backend.usuario.dto;
+package com.sisalmoxarife.backend.dto.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,8 +11,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class InputUserDto {
+public class ResponseUserDto {
+	private Integer id;
 	private String name;
 	private String email;
-	private String password;
 }
