@@ -1,19 +1,19 @@
 package com.sisalmoxarife.backend.resources;
 
-import com.sisalmoxarife.backend.services.UserService;
 import com.sisalmoxarife.backend.dto.user.InputUserDto;
 import com.sisalmoxarife.backend.dto.user.ResponseUserDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sisalmoxarife.backend.services.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/user")
 public class UserResource {
-	
-	@Autowired
-	UserService userService;
+
+	private final UserService userService;
 	
 	@PostMapping
 	public ResponseEntity<ResponseUserDto> saveUser(@RequestBody final InputUserDto inputUser){
