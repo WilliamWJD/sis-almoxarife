@@ -1,21 +1,20 @@
 package com.sisalmoxarife.backend.services.impl;
 
+import com.sisalmoxarife.backend.dto.user.InputUserDto;
+import com.sisalmoxarife.backend.dto.user.ResponseUserDto;
 import com.sisalmoxarife.backend.mapper.UserMapper;
 import com.sisalmoxarife.backend.repositories.UserRepository;
 import com.sisalmoxarife.backend.services.UserService;
-import com.sisalmoxarife.backend.dto.user.InputUserDto;
-import com.sisalmoxarife.backend.dto.user.ResponseUserDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    UserMapper mapper;
+    private final UserMapper mapper;
 
     @Override
     public ResponseUserDto saveUser(final InputUserDto inputUserDto) {

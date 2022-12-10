@@ -5,17 +5,16 @@ import com.sisalmoxarife.backend.dto.employee.EmployeeResponseDto;
 import com.sisalmoxarife.backend.mapper.EmployeeMapper;
 import com.sisalmoxarife.backend.repositories.EmployeeRepository;
 import com.sisalmoxarife.backend.services.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired
-    EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
 
-    @Autowired
-    EmployeeMapper employeeMapper;
+    private final EmployeeMapper employeeMapper;
 
     @Override
     public EmployeeResponseDto saveEmployee(EmployeeInputDto employeeInput) {
