@@ -14,10 +14,15 @@ import org.springframework.web.bind.annotation.*;
 public class UserResource {
 
 	private final UserService userService;
-	
+
 	@PostMapping
 	public ResponseEntity<ResponseUserDto> saveUser(@RequestBody final InputUserDto inputUser){
 		return ResponseEntity.status(HttpStatus.CREATED).body(userService.saveUser(inputUser));
+	}
+
+	@GetMapping("/{userId}")
+	public ResponseEntity<ResponseUserDto> findUserById(@PathVariable(name = "userId") final Integer userId){
+		return ResponseEntity.status(HttpStatus.OK).body(userService.findUserById(userId));
 	}
 	
 	@DeleteMapping("/{userId}")
