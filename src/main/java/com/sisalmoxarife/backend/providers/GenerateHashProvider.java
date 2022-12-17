@@ -9,4 +9,9 @@ public class GenerateHashProvider {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(value);
     }
+
+    public boolean passwordValidation(final String password, final String payload){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder.matches(password, payload);
+    }
 }
