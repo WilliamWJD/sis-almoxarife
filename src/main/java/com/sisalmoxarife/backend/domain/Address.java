@@ -9,11 +9,11 @@ import javax.persistence.Id;
 
 import lombok.*;
 
-@Data
-@ToString
-@EqualsAndHashCode
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 public class Address implements Serializable{
 	private static final long serialVersionUID = 1L;
