@@ -1,6 +1,7 @@
 package com.sisalmoxarife.backend.mapper;
 
 import com.sisalmoxarife.backend.domain.Product;
+import com.sisalmoxarife.backend.domain.User;
 import com.sisalmoxarife.backend.dto.product.ProductInputDto;
 import com.sisalmoxarife.backend.dto.product.ProductResponseDto;
 import org.springframework.stereotype.Component;
@@ -8,11 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductMapper {
 
-    public Product convertProductInputDtoInProduct(final ProductInputDto productInputDto){
+    public Product convertProductInputDtoInProduct(final ProductInputDto productInputDto, final User user){
         Product product = new Product();
         product.setName(productInputDto.getName());
         product.setDescription(productInputDto.getDescription());
         product.setStockCurrent(productInputDto.getStockCurrent());
+        product.setUser(user);
         return product;
     }
 

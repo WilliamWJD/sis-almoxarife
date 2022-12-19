@@ -16,7 +16,7 @@ public class ProductResource {
     private final ProductService productService;
 
     @PostMapping
-    public ResponseEntity<ProductResponseDto> saveProduct(@RequestBody final ProductInputDto productInputDto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(productService.saveProduct(productInputDto));
+    public ResponseEntity<ProductResponseDto> saveProduct(@RequestBody final ProductInputDto productInputDto, @RequestHeader final Integer userId){
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.saveProduct(productInputDto, userId));
     }
 }

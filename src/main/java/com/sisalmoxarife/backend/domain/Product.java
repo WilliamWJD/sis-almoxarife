@@ -2,10 +2,7 @@ package com.sisalmoxarife.backend.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Setter
 @Getter
@@ -20,4 +17,8 @@ public class Product {
     private String name;
     private String description;
     private Integer stockCurrent;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

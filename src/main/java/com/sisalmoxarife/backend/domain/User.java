@@ -1,11 +1,10 @@
 package com.sisalmoxarife.backend.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.*;
 
@@ -25,4 +24,7 @@ public class User implements Serializable{
 	private String name;
 	private String email;
 	private String password;
+
+	@OneToMany(mappedBy = "user")
+	private List<Product> products = new ArrayList<>();
 }

@@ -15,6 +15,14 @@ public class UserMapper {
         return entity;
     }
 
+    public User mapperDtoForEntity(final ResponseUserDto dto) {
+        User entity = new User();
+        entity.setId(dto.getId());
+        entity.setName(dto.getName());
+        entity.setEmail(dto.getEmail());
+        return entity;
+    }
+
     public ResponseUserDto mapperEntityForResponseUserDto(final User entity) {
         ResponseUserDto responseUserDto = new ResponseUserDto();
         responseUserDto.setId(entity.getId());
