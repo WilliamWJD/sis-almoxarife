@@ -1,5 +1,6 @@
 package com.sisalmoxarife.backend.dto.product;
 
+import com.sisalmoxarife.backend.dto.user.ResponseUserDto;
 import lombok.*;
 
 @Setter
@@ -12,4 +13,5 @@ public class ProductResponseDto {
     private String name;
     private String description;
     private Integer stockCurrent;
+    private ResponseUserDto userDto;
 }

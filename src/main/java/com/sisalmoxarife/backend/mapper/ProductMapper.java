@@ -4,6 +4,7 @@ import com.sisalmoxarife.backend.domain.Product;
 import com.sisalmoxarife.backend.domain.User;
 import com.sisalmoxarife.backend.dto.product.ProductInputDto;
 import com.sisalmoxarife.backend.dto.product.ProductResponseDto;
+import com.sisalmoxarife.backend.dto.user.ResponseUserDto;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,12 +19,13 @@ public class ProductMapper {
         return product;
     }
 
-    public ProductResponseDto convertProductEntityInProductResponseDto(final Product product){
+    public ProductResponseDto convertProductEntityInProductResponseDto(final Product product, final ResponseUserDto user){
         ProductResponseDto productResponseDto = new ProductResponseDto();
         productResponseDto.setId(product.getId());
         productResponseDto.setName(product.getName());
         productResponseDto.setDescription(product.getDescription());
         productResponseDto.setStockCurrent(product.getStockCurrent());
+        productResponseDto.setUserDto(user);
         return productResponseDto;
     }
 }

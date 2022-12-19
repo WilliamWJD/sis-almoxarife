@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 
@@ -25,6 +26,7 @@ public class User implements Serializable{
 	private String email;
 	private String password;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Product> products = new ArrayList<>();
 }
