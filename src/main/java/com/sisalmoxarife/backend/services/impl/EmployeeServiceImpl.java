@@ -13,11 +13,10 @@ import org.springframework.stereotype.Service;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
-
     private final EmployeeMapper employeeMapper;
 
     @Override
-    public EmployeeResponseDto saveEmployee(EmployeeInputDto employeeInput) {
+    public EmployeeResponseDto saveEmployee(final EmployeeInputDto employeeInput) {
         return employeeMapper.mapperEntityForEmployeeResponseDto(employeeRepository.save(employeeMapper.mapperDtoForEntity(employeeInput)));
     }
 }
