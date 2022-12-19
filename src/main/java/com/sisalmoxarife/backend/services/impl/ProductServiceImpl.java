@@ -28,9 +28,8 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductResponseDto saveProduct(final ProductInputDto productInputDto, final Integer userId) {
         User user = userMapper.mapperDtoForEntity(userService.findUserById(userId));
-        Product product = productMapper.convertProductInputDtoInProduct(productInputDto, user);
-        Product productResponse = productRepository.save(product);
-        return productMapper.convertProductEntityInProductResponseDto(productResponse, userMapper.mapperEntityForResponseUserDto(productResponse.getUser()));
+        Product product = productRepository.save(productMapper.convertProductInputDtoInProduct(productInputDto, user));
+        return productMapper.convertProductEntityInProductResponseDto(product, userMapper.mapperEntityForResponseUserDto(product.getUser()));
     }
 
     @Override

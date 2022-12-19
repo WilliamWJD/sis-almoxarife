@@ -12,10 +12,12 @@ public class ProductMapper {
 
     public Product convertProductInputDtoInProduct(final ProductInputDto productInputDto, final User user){
         Product product = new Product();
+        product.setId(productInputDto.getId());
         product.setName(productInputDto.getName());
         product.setDescription(productInputDto.getDescription());
         product.setStockCurrent(productInputDto.getStockCurrent());
         product.setUser(user);
+        product.setCategories(productInputDto.getCategories());
         return product;
     }
 
@@ -26,6 +28,7 @@ public class ProductMapper {
         productResponseDto.setDescription(product.getDescription());
         productResponseDto.setStockCurrent(product.getStockCurrent());
         productResponseDto.setUserDto(user);
+        productResponseDto.setCategories(product.getCategories());
         return productResponseDto;
     }
 }

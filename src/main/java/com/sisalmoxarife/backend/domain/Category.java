@@ -5,7 +5,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -24,7 +23,6 @@ public class Category implements Serializable {
     private String description;
 
     @JsonIgnore
-    @ManyToMany
-    @JoinTable(name = "categories_products", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> products = new ArrayList<>();
+    @ManyToMany(mappedBy = "categories")
+    private List<Product> products;
 }
