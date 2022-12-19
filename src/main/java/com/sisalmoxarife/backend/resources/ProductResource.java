@@ -26,4 +26,9 @@ public class ProductResource {
     public ResponseEntity<List<ProductResponseDto>> listAllProducts(){
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.listAllProducts());
     }
+
+    public ResponseEntity<Void> deleteProductById(@PathVariable final Integer productId, @RequestHeader final Integer userId){
+        productService.deleteProduct(productId, userId);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 }

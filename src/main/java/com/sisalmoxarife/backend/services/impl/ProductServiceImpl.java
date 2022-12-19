@@ -10,11 +10,14 @@ import com.sisalmoxarife.backend.mapper.UserMapper;
 import com.sisalmoxarife.backend.repositories.ProductRepository;
 import com.sisalmoxarife.backend.services.ProductService;
 import com.sisalmoxarife.backend.services.UserService;
+import com.sisalmoxarife.backend.services.exception.NoSuchElementException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -26,6 +29,7 @@ public class ProductServiceImpl implements ProductService {
     private final UserMapper userMapper;
 
     @Override
+    @Transactional
     public ProductResponseDto saveProduct(final ProductInputDto productInputDto, final Integer userId) {
         User user = userMapper.mapperDtoForEntity(userService.findUserById(userId));
         Product product = productRepository.save(productMapper.convertProductInputDtoInProduct(productInputDto, user));
@@ -43,5 +47,20 @@ public class ProductServiceImpl implements ProductService {
         }
 
         return productsResponse;
+    }
+
+    @Override
+    public ProductResponseDto findProductById(final Integer productId, final Integer userId) {
+        Optional<Product> product = productRepository.findById(productId);
+        if(!product.isPresent()){
+            throw new NoSuchElementException("Product not found with id: "+productId);
+        }
+        return productMapper.convertProductEntityInProductResponseDto(product.get(), userService.findUserById(userId));
+    }
+
+    @Override
+    public void deleteProduct(Integer productId, Integer userId) {
+        ProductResponseDto product = findProductById(productId, userId);
+        productRepository.deleteById(product.getId());
     }
 }
